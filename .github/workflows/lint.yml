@@ -1,10 +1,9 @@
 name: Lint
 
-on:
-  [push, pull_request]
+on: [push, pull_request]
 
 jobs:
-  commitlint:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -19,5 +18,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Validate all commits from PR
+      - name: run commitlint
         run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
+
+      - name: run eslint
+        run: npm run eslint
+
+      - name: run prettier
+        run: npm run prettier
