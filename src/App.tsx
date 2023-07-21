@@ -1,11 +1,6 @@
 function App() {
-
   // Todo
-  return (
-    <>
-    Task 1
-    </>
-  )
+  return <>Task 1</>;
 }
 
-export default App
+export default App;
